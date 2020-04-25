@@ -1,10 +1,7 @@
 pipeline {
 
-    agent any
-
-    tools {
-        maven 'maven'
-        jdk 'jdk8'
+    agent {
+      docker { image 'purbon/kafka-topology-builder:latest' }
     }
 
    stages {
@@ -18,7 +15,7 @@ pipeline {
               withCredentials([usernamePassword(credentialsId: 'confluent-cloud	', usernameVariable: 'CLUSTER_API_KEY', passwordVariable: 'CLUSTER_API_SECRET')]) {
                 sh './demo/build-connection-file.sh > topology-builder.properties'
               }
-              sh 'java -jar target/kafka-topology-builder-jar-with-dependencies.jar  --brokers ${Brokers} --clientConfig topology-builder.properties --topology ${TopologyFiles}'
+              sh 'kafka-topology-builder.sh  --brokers ${Brokers} --clientConfig topology-builder.properties --topology ${TopologyFiles}'
           }
       }
    }
