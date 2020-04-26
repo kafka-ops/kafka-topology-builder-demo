@@ -1,0 +1,19 @@
+pipeline {
+
+    agent {
+      docker { image 'purbon/kafka-topology-builder:latest' }
+    }
+
+   stages {
+      stage('verify-replication-factor') {
+          steps {
+              sh 'checks/verify-replication-factor.sh ${TopologyFiles} 3'
+          }
+      }
+      stage('verify-num-of-partitions') {
+          steps {
+              sh 'checks/verify-num-of-partitions.sh ${TopologyFiles} 12'
+          }
+      }
+   }
+}
