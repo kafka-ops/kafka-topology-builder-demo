@@ -12,7 +12,7 @@ pipeline {
       }
       stage('verify-num-of-partitions') {
          steps {
-            sh 'checks/verify-num-of-partitions.sh ${TopologyFiles} 11'
+            sh 'checks/verify-num-of-partitions.sh ${TopologyFiles} 12'
          }
       }
       stage('run') {
