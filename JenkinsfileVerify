@@ -1,8 +1,6 @@
 pipeline {
 
-    agent {
-      docker { image 'purbon/kafka-topology-builder:latest' }
-    }
+    agent any
 
    stages {
       stage('verify-replication-factor') {

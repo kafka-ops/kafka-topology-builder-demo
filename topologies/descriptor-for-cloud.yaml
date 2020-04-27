@@ -34,10 +34,6 @@ projects:
         config:
           replication.factor: "3"
           num.partitions: "12"
-      - name: "foo"
-        config:
-          replication.factor: "3"
-          num.partitions: "12"
       - dataType: "avro"
         name: "bar"
         config:
@@ -60,8 +56,8 @@ projects:
       - dataType: "avro"
         name: "events"
         config:
-          replication.factor: "3"
-          num.partitions: "12"
+          replication.factor: "2"
+          num.partitions: "11"
       - dataType: "json"
         name: "contracts"
         config:
