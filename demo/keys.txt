@@ -1,8 +1,0 @@
-YZFB47CKZQEOGFTT
-Kod9SO7ZnJ2+wwg4xONJuevt4yQPXKDqj/erhzeBnJmEAR8AUd7IUyKd7GayS3ft
-
-
-+---------+------------------------------------------------------------------+
-| API Key | 6U3F64XCSLHAADWV                                                 |
-| Secret  | 1ylyg8MWA3coPpybgQ5psPpAd4JJ5K80o1bOcuvqF2WCJS9ge+TQZ1rbIP8fDj5n |
-+---------+------------------------------------------------------------------+
