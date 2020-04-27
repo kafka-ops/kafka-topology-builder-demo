@@ -61,7 +61,7 @@ projects:
         name: "events"
         config:
           replication.factor: "2"
-          num.partitions: "12"
+          num.partitions: "13"
       - dataType: "avro"
         name: "events"
         config:
