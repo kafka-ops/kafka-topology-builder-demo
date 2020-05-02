@@ -9,7 +9,7 @@ projects:
     producers:
       - principal: "User:63002"
     streams:
-      - principal: "User:Streams0"
+      - principal: "User:63002"
         topics:
           read:
             - "topicA"
