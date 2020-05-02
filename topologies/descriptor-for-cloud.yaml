@@ -65,7 +65,7 @@ projects:
       - dataType: "avro"
         name: "events"
         config:
-          replication.factor: "3"
+          replication.factor: "2"
           num.partitions: "12"
       - dataType: "json"
         name: "contracts"
