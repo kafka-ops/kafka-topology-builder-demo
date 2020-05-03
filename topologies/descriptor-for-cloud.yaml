@@ -5,7 +5,7 @@ projects:
   - name: "foo"
     zookeepers: []
     consumers:
-      - principal: "User:63002"
+      - principal: "User:App"
     producers:
       - principal: "User:63002"
     streams:
