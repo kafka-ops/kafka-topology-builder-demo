@@ -69,5 +69,5 @@ projects:
       - dataType: "json"
         name: "contracts"
         config:
-          replication.factor: "3"
+          replication.factor: "2"
           num.partitions: "12"
