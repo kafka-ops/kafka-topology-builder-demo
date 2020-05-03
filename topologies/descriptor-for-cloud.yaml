@@ -8,9 +8,9 @@ projects:
       - principal: "User:App0"
       - principal: "User:63002"
     producers:
-      - principal: "User:App3"
+      - principal: "User:63002"
     streams:
-      - principal: "User:Streams0"
+      - principal: "User:63002"
         topics:
           read:
             - "topicA"
@@ -24,7 +24,7 @@ projects:
           read:
             - "topicA"
             - "topicB"
-      - principal: "User:Connect2"
+      - principal: "User:63002"
         topics:
           write:
             - "topicC"
@@ -57,6 +57,11 @@ projects:
     streams: []
     connectors: []
     topics:
+      - dataType: "json"
+        name: "events"
+        config:
+          replication.factor: "3"
+          num.partitions: "12"
       - dataType: "avro"
         name: "events"
         config:
