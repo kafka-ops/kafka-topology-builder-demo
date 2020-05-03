@@ -1,0 +1,89 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.38">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.6.0"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.6.0">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description>Kafka Topology Builder</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.5">
+      <projectUrl>https://github.com/purbon/kafka-topology-builder-demo.git/</projectUrl>
+      <displayName>Kafka Topology Builder</displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>TopologyFiles</name>
+          <description></description>
+          <defaultValue>topologies/descriptor-for-cloud.yaml</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <org.jenkinsci.plugins.github.pullrequest.GitHubPRTrigger plugin="github-pullrequest@0.2.8">
+          <spec></spec>
+          <triggerMode>HEAVY_HOOKS</triggerMode>
+          <cancelQueued>true</cancelQueued>
+          <abortRunning>true</abortRunning>
+          <skipFirstRun>false</skipFirstRun>
+          <repoProviders>
+            <com.github.kostyasha.github.integration.generic.repoprovider.GitHubPluginRepoProvider>
+              <cacheConnection>true</cacheConnection>
+              <manageHooks>true</manageHooks>
+              <repoPermission>ADMIN</repoPermission>
+            </com.github.kostyasha.github.integration.generic.repoprovider.GitHubPluginRepoProvider>
+          </repoProviders>
+          <errorsAction>
+            <description>GitHub Pull Requests Trigger Errors</description>
+            <errors class="java.util.Collections$SynchronizedSet" serialization="custom">
+              <java.util.Collections_-SynchronizedCollection>
+                <default>
+                  <c class="set"/>
+                  <mutex class="java.util.Collections$SynchronizedSet" reference="../../.."/>
+                </default>
+              </java.util.Collections_-SynchronizedCollection>
+            </errors>
+          </errorsAction>
+          <events>
+            <org.jenkinsci.plugins.github.pullrequest.events.impl.GitHubPRNonMergeableEvent>
+              <skip>false</skip>
+            </org.jenkinsci.plugins.github.pullrequest.events.impl.GitHubPRNonMergeableEvent>
+          </events>
+          <preStatus>true</preStatus>
+        </org.jenkinsci.plugins.github.pullrequest.GitHubPRTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.80">
+    <scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
+      <configVersion>2</configVersion>
+      <userRemoteConfigs>
+        <hudson.plugins.git.UserRemoteConfig>
+          <name>origin-pull</name>
+          <refspec>+refs/pull/${GITHUB_PR_NUMBER}/merge:refs/remotes/origin-pull/pull/${GITHUB_PR_NUMBER}/head</refspec>
+          <url>https://github.com/purbon/kafka-topology-builder-demo.git</url>
+        </hudson.plugins.git.UserRemoteConfig>
+      </userRemoteConfigs>
+      <branches>
+        <hudson.plugins.git.BranchSpec>
+          <name>origin-pull/pull/${GITHUB_PR_NUMBER}/head</name>
+        </hudson.plugins.git.BranchSpec>
+      </branches>
+      <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+      <submoduleCfg class="list"/>
+      <extensions/>
+    </scm>
+    <scriptPath>JenkinsfileVerify</scriptPath>
+    <lightweight>true</lightweight>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
