@@ -32,7 +32,7 @@ projects:
       - name: "zet"
         config:
           replication.factor: "3"
-          num.partitions: "12"
+          num.partitions: "122"
       - name: "foo"
         config:
           replication.factor: "3"
@@ -64,7 +64,7 @@ projects:
       - dataType: "avro"
         name: "events"
         config:
-          replication.factor: "2"
+          replication.factor: "3"
           num.partitions: "12"
       - dataType: "json"
         name: "contracts"
