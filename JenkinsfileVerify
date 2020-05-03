@@ -24,7 +24,7 @@ pipeline {
      }
      failure {
         withCredentials([string(credentialsId: 'my-github', variable: 'GITHUB_TOKEN')]) {
-          sh 'post-hook-failure.sh'
+          sh './post-hook-failure.sh'
         }
      }
    }
