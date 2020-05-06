@@ -70,6 +70,11 @@ projects:
         config:
           replication.factor: "3"
           num.partitions: "12"
+      - dataType: "protobuf"
+        name: "countries"
+        config:
+          replication.factor: "3"
+          num.partitions: "12"
       - dataType: "json"
         name: "contracts"
         config:
