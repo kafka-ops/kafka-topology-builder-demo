@@ -51,6 +51,11 @@ projects:
         config:
           replication.factor: "3"
           num.partitions: "12"
+      - name: "demo-session"
+        dataType: "json"
+        config:
+          replication.factor: "3"
+          num.partitions: "12"
   - name: "bar"
     zookeepers: []
     consumers:
