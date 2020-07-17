@@ -6,6 +6,7 @@ projects:
     zookeepers: []
     consumers:
       - principal: "User:63002"
+      - principal: "User:MyPrincipal"
     producers:
       - principal: "User:63002"
     streams:
