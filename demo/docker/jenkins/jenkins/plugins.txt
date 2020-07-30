@@ -1,0 +1,5 @@
+build-pipeline-plugin:1.5.7.1
+bitbucket:1.1.15
+bitbucket-pullrequest-builder:1.5.0
+bitbucket-push-and-pull-request:2.4.0
+bitbucket-build-status-notifier:1.4.2
