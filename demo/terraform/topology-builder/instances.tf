@@ -31,7 +31,7 @@ resource "aws_instance" "brokers" {
 
   resource "aws_instance" "jenkins" {
     count         = var.jenkins-count
-    ami           = data.aws_ami.ubuntu.id
+    ami           = "ami-0f2ed58082cb08a4d"
     instance_type = local.jenkins-instance-type
     availability_zone = element(var.azs, count.index)
     # security_groups = ["${var.security_group}"]
@@ -48,6 +48,8 @@ resource "aws_instance" "brokers" {
       role = "jenkins"
       Role = "jenkins"
       play = "topology-builder-demo"
+      Owner_Email = var.owner_email
+      Owner_Name = var.owner_name
       owner = "${var.owner}"
       sshUser = "ubuntu"
       # sshPrivateIp = true // this is only checked for existence, not if it's true or false by terraform.py (ati)

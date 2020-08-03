@@ -2,6 +2,9 @@ variable "name" {}
 variable "region" {}
 variable "owner" {}
 variable "ownershort" {}
+variable "owner_name" {}
+variable "owner_email" {}
+
 
 variable "project" {
   default = "topology-builder"
@@ -13,6 +16,7 @@ variable "jenkins-count" {
 variable "broker-count" {
   default = 1
 }
+
 
 provider "aws" {
   version = "~> 2.27"

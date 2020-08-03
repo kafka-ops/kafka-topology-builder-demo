@@ -8,6 +8,9 @@ variable "owner" {
 
 variable "myip" {}
 
+variable "owner_name" {}
+variable "owner_email" {}
+
 variable "ownershort" {
   default = "pub"
 }
@@ -16,19 +19,17 @@ variable "instance_type" {
   default = "t3a.medium"
 }
 
-variable "account_file" {
-  default = "~/.gcloud/account.json"
-}
-
 module "ireland-cluster" {
   source         = "./topology-builder"
-  broker-count   = 1
+  broker-count   = 0
   jenkins-count  = 1
   name           = "ireland-cluster"
   region         = "eu-west-1"
   azs            = ["eu-west-1a"]
   owner          = var.owner
   ownershort     = var.ownershort
+  owner_name     = var.owner_name
+  owner_email    = var.owner_email
   key_name       = "purbon-ireland"
   myip           = var.myip
 }

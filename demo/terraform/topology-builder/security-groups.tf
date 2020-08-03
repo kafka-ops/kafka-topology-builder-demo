@@ -20,19 +20,16 @@ resource "aws_security_group" "ssh" {
       cidr_blocks = ["${local.myip-cidr}"]
   }
 
-  # ssh from anywhere
-  ingress {
-      from_port = 22
-      to_port = 22
-      protocol = "TCP"
-      cidr_blocks = ["0.0.0.0/0"]
-  }
-
   egress {
       from_port = 0
       to_port = 0
       protocol = "-1"
       cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Owner_Email = var.owner_email
+    Owner_Name = var.owner_name
   }
 }
 
@@ -127,7 +124,7 @@ resource "aws_security_group" "jenkins" {
       to_port = 8080
       protocol = "TCP"
       self = true
-      cidr_blocks = ["${local.myip-cidr}"]
+      cidr_blocks = ["${local.myip-cidr}", "185.199.108.0/22", "140.82.112.0/20", "192.30.252.0/22"]
   }
 
   # Allow ping from my ip, self, bastion
@@ -144,5 +141,10 @@ resource "aws_security_group" "jenkins" {
       to_port = 0
       protocol = "-1"
       cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Owner_Email = var.owner_email
+    Owner_Name = var.owner_name
   }
 }
