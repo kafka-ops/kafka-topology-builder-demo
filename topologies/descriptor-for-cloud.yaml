@@ -3,13 +3,13 @@ context: "context"
 projects:
   - name: "projectA"
     consumers:
-      - principal: "User:App0"
-      - principal: "User:App1"
+      - principal: "User:63002"
+      - principal: "User:63002"
     producers:
-      - principal: "User:App3"
-      - principal: "User:App4"
+      - principal: "User:63002"
+      - principal: "User:63002"
     streams:
-      - principal: "User:Streams0"
+      - principal: "User:63002"
         topics:
           read:
             - "topicA"
@@ -18,12 +18,12 @@ projects:
             - "topicC"
             - "topicD"
     connectors:
-      - principal: "User:Connect1"
+      - principal: "User:63002"
         topics:
           read:
             - "topicA"
             - "topicB"
-      - principal: "User:Connect2"
+      - principal: "User:63002"
         topics:
           write:
             - "topicC"
