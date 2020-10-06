@@ -1,6 +1,5 @@
 ---
-team: "team"
-source: "source"
+context: "context"
 projects:
   - name: "foo"
     zookeepers: []
