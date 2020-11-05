@@ -53,7 +53,7 @@ projects:
         config:
           replication.factor: "3"
           num.partitions: "12"
-          retention.ms: 2344545
+          retention.ms: 123345
 platform:
   schema_registry:
     instances:
