@@ -54,6 +54,10 @@ projects:
           replication.factor: "3"
           num.partitions: "12"
           retention.ms: 123456
+      - name: "exchange"
+        config:
+          replication.factor: "3"
+          num.partitions: "9"
 platform:
   schema_registry:
     instances:
