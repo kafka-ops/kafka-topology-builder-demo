@@ -49,11 +49,11 @@ projects:
   - name: "projectC"
     topics:
       - dataType: "json"
-        name: "barcelona"
+        name: "lmi"
         config:
           replication.factor: "3"
           num.partitions: "12"
-          retention.ms: 9000
+          retention.ms: 123456
 platform:
   schema_registry:
     instances:
