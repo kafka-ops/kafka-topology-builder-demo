@@ -2,7 +2,7 @@
 
 
 CONFIG_FILE="
-bootstrap.servers=pkc-4ygn6.europe-west3.gcp.confluent.cloud:9092 \n
+bootstrap.servers=pkc-e8mp5.eu-west-1.aws.confluent.cloud:9092 \n
 security.protocol=SASL_SSL \n
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule   required username=\"$CLUSTER_API_KEY\"   password=\"$CLUSTER_API_SECRET\"; \n
 ssl.endpoint.identification.algorithm=https \n
