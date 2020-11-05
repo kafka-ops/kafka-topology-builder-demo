@@ -49,7 +49,7 @@ projects:
   - name: "projectC"
     topics:
       - dataType: "json"
-        name: "barcelona"
+        name: "exchange"
         config:
           replication.factor: "3"
           num.partitions: "12"
