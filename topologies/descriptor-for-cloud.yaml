@@ -1,6 +1,5 @@
 ---
 context: "context"
-origin: "origin"
 projects:
   - name: "projectA"
     consumers:
