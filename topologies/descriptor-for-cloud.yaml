@@ -42,6 +42,7 @@ projects:
         config:
           replication.factor: "3"
           num.partitions: "12"
+          segment.ms: 6048000
   - name: "bar"
     topics:
       - dataType: "avro"
