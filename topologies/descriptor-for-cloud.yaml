@@ -22,7 +22,6 @@ projects:
             - "topicD"
     connectors:
       - principal: "User:63002"
-        group: "group"
         status_topic: "status"
         offset_topic: "offset"
         configs_topic: "configs"
