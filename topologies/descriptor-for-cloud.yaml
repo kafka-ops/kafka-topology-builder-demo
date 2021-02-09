@@ -1,5 +1,8 @@
 ---
-context: "vodafone"
+context: "context"
+company: "company"
+env: "env"
+source: "source"
 projects:
   - name: "projectA"
     consumers:
@@ -19,11 +22,15 @@ projects:
             - "topicD"
     connectors:
       - principal: "User:63002"
+        group: "group"
+        status_topic: "status"
+        offset_topic: "offset"
+        configs_topic: "configs"
         topics:
           read:
             - "topicA"
             - "topicB"
-      - principal: "User:63002"
+      - principal: "User:63001"
         topics:
           write:
             - "topicC"
@@ -31,41 +38,47 @@ projects:
     topics:
       - name: "foo"
         config:
-          replication.factor: "3"
-          num.partitions: "12"
+          replication.factor: "1"
+          num.partitions: "1"
       - name: "bar"
         dataType: "avro"
         config:
-          replication.factor: "3"
-          num.partitions: "12"
+          replication.factor: "1"
+          num.partitions: "1"
   - name: "projectB"
     topics:
       - dataType: "avro"
-        name: "berlin"
+        name: "bar"
         config:
-          replication.factor: "3"
-          num.partitions: "12"
+          replication.factor: "1"
+          num.partitions: "1"
   - name: "projectC"
+    streams:
+      - principal: "User:63002"
+        applicationId: "streamsApplicationId"
+        topics:
+          read:
+            - "topicE"
+          write:
+            - "topicF"
     topics:
-      - dataType: "json"
-        name: "lmi"
+      - name: "topicE"
         config:
-          replication.factor: "3"
-          num.partitions: "12"
-          retention.ms: 123456
-      - name: "exchange"
+          replication.factor: "1"
+          num.partitions: "1"
+      - name: "topicF"
         config:
-          replication.factor: "3"
-          num.partitions: "12"
+          replication.factor: "1"
+          num.partitions: "1"
 platform:
   schema_registry:
     instances:
-      - principal: "User:SchemaRegistry01"
+      - principal: "User:63001"
         topic: "foo"
         group: "bar"
-      - principal: "User:SchemaRegistry02"
+      - principal: "User:63002"
         topic: "zet"
   control_center:
     instances:
-      - principal: "User:ControlCenter"
+      - principal: "User:63003"
         appId: "controlcenter"
