@@ -1,5 +1,5 @@
 ---
-context: "vodafone"
+context: "lob"
 projects:
   - name: "projectA"
     consumers:
