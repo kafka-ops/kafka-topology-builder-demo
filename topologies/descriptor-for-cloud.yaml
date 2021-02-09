@@ -38,20 +38,20 @@ projects:
     topics:
       - name: "foo"
         config:
-          replication.factor: "1"
-          num.partitions: "1"
+          replication.factor: "3"
+          num.partitions: "3"
       - name: "bar"
         dataType: "avro"
         config:
-          replication.factor: "1"
-          num.partitions: "1"
+          replication.factor: "3"
+          num.partitions: "3"
   - name: "projectB"
     topics:
       - dataType: "avro"
         name: "bar"
         config:
-          replication.factor: "1"
-          num.partitions: "1"
+          replication.factor: "3"
+          num.partitions: "3"
   - name: "projectC"
     streams:
       - principal: "User:63002"
@@ -64,12 +64,12 @@ projects:
     topics:
       - name: "topicE"
         config:
-          replication.factor: "1"
-          num.partitions: "1"
+          replication.factor: "3"
+          num.partitions: "3"
       - name: "topicF"
         config:
-          replication.factor: "1"
-          num.partitions: "1"
+          replication.factor: "3"
+          num.partitions: "3"
 platform:
   schema_registry:
     instances:
