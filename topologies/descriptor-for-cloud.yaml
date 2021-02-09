@@ -1,18 +1,19 @@
 ---
-context: "context"
-company: "company"
-env: "env"
-source: "source"
+context: "contextOrg"
 projects:
-  - name: "projectA"
+  - name: "foo"
     consumers:
-      - principal: "User:63002"
-      - principal: "User:63002"
+      - principal: "User:632938"
+        group: "foo"
+      - principal: "User:632940"
     producers:
-      - principal: "User:63002"
-      - principal: "User:63002"
+      - principal: "User:632938"
+      - principal: "User:832940"
+        transactionId: "1234"
+      - principal: "User:832940"
+        idempotence: "true"
     streams:
-      - principal: "User:63002"
+      - principal: "User:632938"
         topics:
           read:
             - "topicA"
@@ -21,12 +22,17 @@ projects:
             - "topicC"
             - "topicD"
     connectors:
-      - principal: "User:63002"
+      - principal: "User:832967"
+        cluster_id: "foo"
+        group: "group"
+        status_topic: "status"
+        offset_topic: "offset"
+        configs_topic: "configs"
         topics:
           read:
             - "topicA"
             - "topicB"
-      - principal: "User:63001"
+      - principal: "User:832968"
         topics:
           write:
             - "topicC"
@@ -38,20 +44,19 @@ projects:
           num.partitions: "12"
       - name: "bar"
         dataType: "avro"
-        config:
-          replication.factor: "3"
-          num.partitions: "12"
-  - name: "projectB"
+      - name: "cat"
+        dataType: "avro"
+  - name: "bar"
     topics:
       - dataType: "avro"
         name: "bar"
         config:
           replication.factor: "3"
           num.partitions: "12"
-  - name: "projectC"
+  - name: "baz"
     streams:
-      - principal: "User:63002"
-        applicationId: "streamsApplicationId"
+      - principal: "User:632940"
+        applicationId: "applicationId-1"
         topics:
           read:
             - "topicE"
@@ -69,12 +74,12 @@ projects:
 platform:
   schema_registry:
     instances:
-      - principal: "User:63001"
+      - principal: "User:SchemaRegistry01"
         topic: "foo"
         group: "bar"
-      - principal: "User:63002"
+      - principal: "User:SchemaRegistry02"
         topic: "zet"
   control_center:
     instances:
-      - principal: "User:63003"
+      - principal: "User:ControlCenter"
         appId: "controlcenter"
