@@ -1,5 +1,5 @@
 ---
-context: "contextOrg"
+context: "meetup"
 projects:
   - name: "foo"
     consumers:
