@@ -39,19 +39,19 @@ projects:
       - name: "foo"
         config:
           replication.factor: "3"
-          num.partitions: "3"
+          num.partitions: "12"
       - name: "bar"
         dataType: "avro"
         config:
           replication.factor: "3"
-          num.partitions: "3"
+          num.partitions: "12"
   - name: "projectB"
     topics:
       - dataType: "avro"
         name: "bar"
         config:
           replication.factor: "3"
-          num.partitions: "3"
+          num.partitions: "12"
   - name: "projectC"
     streams:
       - principal: "User:63002"
@@ -65,11 +65,11 @@ projects:
       - name: "topicE"
         config:
           replication.factor: "3"
-          num.partitions: "3"
+          num.partitions: "12"
       - name: "topicF"
         config:
           replication.factor: "3"
-          num.partitions: "3"
+          num.partitions: "12"
 platform:
   schema_registry:
     instances:
