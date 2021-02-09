@@ -1,7 +1,7 @@
 pipeline {
 
     agent {
-      docker { image 'purbon/kafka-topology-builder:1.5' }
+      docker { image 'purbon/kafka-topology-builder:1.5.0' }
     }
 
    stages {
