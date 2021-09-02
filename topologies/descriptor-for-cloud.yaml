@@ -75,6 +75,10 @@ projects:
         config:
           replication.factor: "3"
           num.partitions: "12"
+      - name: "topicMaccabi"
+        config:
+          replication.factor: "3"
+          num.partitions: "12"
 platform:
   schema_registry:
     instances:
